@@ -1,0 +1,29 @@
+// table Product
+CREATE table Product (
+	Product_id VARCHAR(20) primary key,
+    Product_name VARCHAR(20) not null,
+    Price int unsigned
+    )
+// Table Costumer
+  CREATE table Customer (
+  	Customer_id VARCHAR(20) primary key,
+  	Customer_name VARCHAR(20) not null,
+      Customer_Tel int
+      )
+
+    // Order table
+  CREATE table Orders (
+	Customer_id VARCHAR(20),
+	Product_id VARCHAR(20) ,
+    Quantity int ,
+    Total_amount int,
+    foreign key( Customer_id) references Customer(Customer_id),
+    foreign key( Product_id) references Product(Product_id)
+    )
+
+//Add a column Category
+    ALTER TABLE Product
+    ADD category varchar(20)
+//Add a column OrderDate
+ALTER TABLE ORDERS
+ADD OrderDate DATETIME DEFAULT CURRENT_TIMESTAMP;
